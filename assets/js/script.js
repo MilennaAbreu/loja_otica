@@ -21,3 +21,7 @@ next.addEventListener('click', () => {
   index = (index < slides.length - 1) ? index + 1 : 0;
   showSlide(index);
 });
+setInterval(() => {
+  index = (index < slides.length - 1) ? index + 1 : 0;
+  showSlide(index);
+}, 5000);
