@@ -27,11 +27,13 @@ include 'header.php';
 <main class="container">
   <h2>Cadastro</h2>
   <?php if ($message) echo '<p style="color:red">'.$message.'</p>'; ?>
-  <form method="post">
-    <label>Email:<br><input type="email" name="email" required></label><br>
-    <label>Nome:<br><input type="text" name="nome" required></label><br>
-    <label>Senha:<br><input type="password" name="senha" required></label><br>
-    <button class="btn" type="submit">Cadastrar</button>
-  </form>
+  <div class="form-card">
+    <form method="post">
+      <label>Email:<br><input type="email" name="email" required></label>
+      <label>Nome:<br><input type="text" name="nome" required></label>
+      <label>Senha:<br><input type="password" name="senha" required></label>
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+  </div>
 </main>
 <?php include 'footer.php'; ?>
