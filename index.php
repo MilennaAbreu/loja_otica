@@ -65,13 +65,12 @@ include 'header.php';
           <?php
             $img = $product['IMAGEM'];
             if (!preg_match('/^https?:\/\//', $img)) {
-                if (file_exists($img)) {
-                    $img = $img;
-                } elseif (file_exists(__DIR__ . '/assets/images/' . $img)) {
+                if ($img !== '' && $img[0] !== '/') {
                     $img = 'assets/images/' . $img;
-                } else {
-                    $img = 'assets/images/placeholder.svg';
                 }
+            }
+            if ($img === '' || $img === null) {
+                $img = 'assets/images/placeholder.svg';
             }
           ?>
           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($product['NOME']) ?>">
