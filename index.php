@@ -17,6 +17,21 @@ include 'header.php';
     <button class="slider-nav next">&#10095;</button>
   </section>
 
+  <section class="info-cards container">
+    <div class="info-card">
+      <img src="assets/images/icon-delivery.svg" alt="Entregas">
+      <p>Entregas para todo o Brasil</p>
+    </div>
+    <div class="info-card">
+      <img src="assets/images/icon-quality.svg" alt="Qualidade">
+      <p>Qualidade Garantida</p>
+    </div>
+    <div class="info-card">
+      <img src="assets/images/icon-original.svg" alt="Originais">
+      <p>Produtos 100% Originais</p>
+    </div>
+  </section>
+
   <section class="products-section container">
     <aside class="filters-panel">
       <h3>Filtros</h3>

@@ -3,6 +3,7 @@
       <div class="footer-links">
         <a href="#">Ajuda</a>
         <a href="#">Contato</a>
+        <a href="localizar_loja.php">Localizar Loja</a>
       </div>
       <div class="map-container">
         <iframe src="https://maps.google.com/maps?q=Óticas+Alamanda&output=embed" allowfullscreen loading="lazy"></iframe>
