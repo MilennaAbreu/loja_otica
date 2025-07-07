@@ -14,7 +14,8 @@ body { font-family: var(--font-sans); background: var(--white); color: var(--bla
 /* Header */
 .main-header { background: var(--white); border-bottom:1px solid #ddd; }
 .header-top { display:flex; align-items:center; justify-content:space-between; padding:15px 0; }
-.logo a { font-size:24px; font-weight:700; text-decoration:none; color:var(--black); }
+.logo a { display:inline-block; }
+.logo img { height:40px; width:auto; }
 .hamburger { display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; }
 .hamburger span { width:25px; height:3px; background:var(--black); }
 .main-nav ul { display:flex; list-style:none; gap:20px; }
@@ -87,8 +88,19 @@ form button:hover, .btn:hover { background:var(--primary-dark); }
 
 
 /* Info cards below hero slider */
-.info-cards { display:flex; justify-content:center; gap:20px; margin:20px 0; }
-.info-card { flex:1; text-align:center; padding:15px; }
+.info-cards {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin:20px 0;
+  flex-wrap:wrap;
+}
+.info-card {
+  flex:1 1 200px;
+  text-align:center;
+  padding:15px;
+}
 .info-card img { width:60px; height:60px; margin-bottom:10px; }
 
 /* Footer basic layout */

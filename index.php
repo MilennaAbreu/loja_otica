@@ -11,11 +11,11 @@ include 'header.php';
   <section class="hero-slider">
     <div class="slide active">
       <img src="assets/images/slide1.jpg" alt="Slide 1">
-      <div class="slide-caption"><h1>Explore a nova coleção</h1></div>
+      <div class="slide-caption"><h1>Descubra a Elegância da Nova Coleção</h1></div>
     </div>
     <div class="slide">
       <img src="assets/images/slide2.jpg" alt="Slide 2">
-      <div class="slide-caption"><h1>Estilo icônico</h1></div>
+      <div class="slide-caption"><h1>Encontre Seu Estilo Icônico</h1></div>
     </div>
     <button class="slider-nav prev">&#10094;</button>
     <button class="slider-nav next">&#10095;</button>
