@@ -12,3 +12,6 @@ pedidos na tabela `PEDIDO_ECOMMERCE`.
 Os parâmetros de conexão estão definidos em `config.php` e já apontam
 para o servidor MySQL utilizado pela aplicação.
 
+Caso um produto não possua a imagem armazenada localmente, o site exibe
+um placeholder (`assets/images/placeholder.svg`).
+
