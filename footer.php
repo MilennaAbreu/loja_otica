@@ -5,7 +5,7 @@
         <a href="#">Contato</a>
         <a href="#">Localizar Loja</a>
       </div>
-      <p>&copy; <?php echo date('Y'); ?> Óticas Fusion. Todos os direitos reservados.</p>
+      <p>&copy; <?php echo date('Y'); ?> Óticas Alamanda. Todos os direitos reservados.</p>
     </div>
   </footer>
 </body>

@@ -1,6 +1,6 @@
 # loja_otica
 
-Projeto simples de vitrine para uma ótica. Agora utiliza as tabelas do
+Projeto simples de vitrine para a Óticas Alamanda. Agora utiliza as tabelas do
 banco de dados de produção e traz os produtos cadastrados na tabela
 `PRODUTO`.
 

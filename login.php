@@ -23,7 +23,7 @@ include 'header.php';
   <form method="post">
     <label>Email:<br><input type="email" name="email" required></label><br>
     <label>Senha:<br><input type="password" name="senha" required></label><br>
-    <button type="submit">Entrar</button>
+    <button class="btn" type="submit">Entrar</button>
   </form>
   <p>Ou entre com sua conta Google (requer configuração):</p>
   <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-login_uri="google_login.php"></div>

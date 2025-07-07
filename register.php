@@ -31,7 +31,7 @@ include 'header.php';
     <label>Email:<br><input type="email" name="email" required></label><br>
     <label>Nome:<br><input type="text" name="nome" required></label><br>
     <label>Senha:<br><input type="password" name="senha" required></label><br>
-    <button type="submit">Cadastrar</button>
+    <button class="btn" type="submit">Cadastrar</button>
   </form>
 </main>
 <?php include 'footer.php'; ?>

@@ -22,14 +22,14 @@ foreach ($items as $it) {
           <td><?php echo htmlspecialchars($item['NOME']); ?></td>
           <td><?php echo (int)$item['QUANTIDADE']; ?></td>
           <td>R$ <?php echo number_format($item['VALOR_UNITARIO']*$item['QUANTIDADE'], 2, ',', '.'); ?></td>
-          <td><a href="remove_item.php?id=<?php echo $item['ID']; ?>">Remover</a></td>
+          <td><a class="btn" href="remove_item.php?id=<?php echo $item['ID']; ?>">Remover</a></td>
         </tr>
       <?php endforeach; ?>
       </tbody>
     </table>
     <p>Total: <strong>R$ <?php echo number_format($total, 2, ',', '.'); ?></strong></p>
     <form action="checkout.php" method="post">
-      <button type="submit">Finalizar Compra</button>
+      <button class="btn" type="submit">Finalizar Compra</button>
     </form>
   <?php endif; ?>
 </main>
