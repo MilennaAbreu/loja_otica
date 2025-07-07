@@ -21,10 +21,10 @@ body { font-family: var(--font-sans); background: var(--white); color: var(--bla
 .header-icons img { width:20px; }
 
 /* Hero Slider */
-.hero-slider { position:relative; overflow:hidden; }
-.slide { display:none; position:relative; }
+.hero-slider { position:relative; overflow:hidden; width:100%; padding:0; }
+.slide { display:none; position:relative; width:100%; }
 .slide.active { display:block; }
-.slide img { width:100%; height:auto; }
+.slide img { width:100%; height:400px; object-fit:cover; }
 .slide-caption { position:absolute; bottom:20%; left:5%; color:var(--white); background:rgba(0,0,0,0.5); padding:20px; }
 .slider-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); border:none; color:var(--white); font-size:30px; padding:10px; cursor:pointer; }
 .slider-nav.prev { left:10px; }
