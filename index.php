@@ -30,9 +30,11 @@ include 'header.php';
     <div class="products-grid">
       <?php foreach (getProducts($pdo) as $product): ?>
         <div class="product-card">
-          <img src="<?= htmlspecialchars($product['IMAGEM']) ?>" alt="<?= htmlspecialchars($product['NOME']) ?>">
+          <?php $img = $product['IMAGEM']; if (strpos($img,'http')!==0) $img = 'assets/images/'.$img; ?>
+          <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($product['NOME']) ?>">
           <h4><?= htmlspecialchars($product['NOME']) ?></h4>
           <p>R$ <?= number_format($product['VALOR_UNITARIO'], 2, ',', '.') ?></p>
+          <a class="btn" href="add_to_cart.php?id=<?= $product['ID'] ?>">Adicionar</a>
         </div>
       <?php endforeach; ?>
     </div>
