@@ -3,10 +3,57 @@
  * Busca produtos ativos no banco de dados principal do sistema.
  * A consulta traz apenas alguns campos utilizados na vitrine.
  */
-function getProducts(PDO $pdo): array {
-    $sql = "SELECT ID, NOME, VALOR_UNITARIO, IMAGEM FROM PRODUTO WHERE STATUS='ATIVO' LIMIT 12";
-    $stmt = $pdo->query($sql);
+function getProducts(PDO $pdo, $marca = null, $categoria = null): array {
+    $sql = "SELECT ID, NOME, VALOR_UNITARIO, IMAGEM FROM PRODUTO WHERE STATUS='ATIVO'";
+    $params = [];
+    if ($marca) {
+        if (columnExists($pdo, 'PRODUTO', 'MARCA')) {
+            $sql .= " AND MARCA=?";
+            $params[] = $marca;
+        } elseif (columnExists($pdo, 'PRODUTO', 'ID_MARCA')) {
+            $sql .= " AND ID_MARCA=?";
+            $params[] = $marca;
+        }
+    }
+    if ($categoria) {
+        if (columnExists($pdo, 'PRODUTO', 'CATEGORIA')) {
+            $sql .= " AND CATEGORIA=?";
+            $params[] = $categoria;
+        } elseif (columnExists($pdo, 'PRODUTO', 'ID_CATEGORIA')) {
+            $sql .= " AND ID_CATEGORIA=?";
+            $params[] = $categoria;
+        }
+    }
+    $sql .= " LIMIT 12";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/** Obtém marcas cadastradas */
+function getBrands(PDO $pdo): array {
+    if (columnExists($pdo, 'PRODUTO', 'MARCA')) {
+        $stmt = $pdo->query("SELECT DISTINCT MARCA FROM PRODUTO WHERE STATUS='ATIVO' ORDER BY MARCA");
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    if (columnExists($pdo, 'PRODUTO', 'ID_MARCA') && columnExists($pdo, 'MARCA', 'NOME')) {
+        $stmt = $pdo->query("SELECT DISTINCT m.NOME FROM MARCA m JOIN PRODUTO p ON p.ID_MARCA=m.ID WHERE p.STATUS='ATIVO' ORDER BY m.NOME");
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    return [];
+}
+
+/** Obtém categorias cadastradas */
+function getCategories(PDO $pdo): array {
+    if (columnExists($pdo, 'PRODUTO', 'CATEGORIA')) {
+        $stmt = $pdo->query("SELECT DISTINCT CATEGORIA FROM PRODUTO WHERE STATUS='ATIVO' ORDER BY CATEGORIA");
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    if (columnExists($pdo, 'PRODUTO', 'ID_CATEGORIA') && columnExists($pdo, 'CATEGORIA', 'NOME')) {
+        $stmt = $pdo->query("SELECT DISTINCT c.NOME FROM CATEGORIA c JOIN PRODUTO p ON p.ID_CATEGORIA=c.ID WHERE p.STATUS='ATIVO' ORDER BY c.NOME");
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
+    return [];
 }
 
 /** Obtem ou cria um carrinho para a sessao atual */

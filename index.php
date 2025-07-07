@@ -1,6 +1,10 @@
 <?php
 require 'config.php';
 require 'functions.php';
+$marcaSel = $_GET['marca'] ?? null;
+$catSel = $_GET['categoria'] ?? null;
+$brands = getBrands($pdo);
+$categories = getCategories($pdo);
 include 'header.php';
 ?>
 <main>
@@ -35,15 +39,28 @@ include 'header.php';
   <section class="products-section container">
     <aside class="filters-panel">
       <h3>Filtros</h3>
-      <ul>
-        <li><button class="filter-toggle">Masculino</button></li>
-        <li><button class="filter-toggle">Feminino</button></li>
-        <li><button class="filter-toggle">Unissex</button></li>
-        <li><button class="filter-toggle">Polarizado</button></li>
-      </ul>
+      <form method="get">
+        <label>Marca
+          <select name="marca">
+            <option value="">Todas</option>
+            <?php foreach ($brands as $b): ?>
+              <option value="<?= htmlspecialchars($b) ?>" <?= $b === $marcaSel ? 'selected' : '' ?>><?= htmlspecialchars($b) ?></option>
+            <?php endforeach; ?>
+          </select>
+        </label>
+        <label>Categoria
+          <select name="categoria">
+            <option value="">Todas</option>
+            <?php foreach ($categories as $c): ?>
+              <option value="<?= htmlspecialchars($c) ?>" <?= $c === $catSel ? 'selected' : '' ?>><?= htmlspecialchars($c) ?></option>
+            <?php endforeach; ?>
+          </select>
+        </label>
+        <button class="btn" type="submit">Filtrar</button>
+      </form>
     </aside>
     <div class="products-grid">
-      <?php foreach (getProducts($pdo) as $product): ?>
+      <?php foreach (getProducts($pdo, $marcaSel, $catSel) as $product): ?>
         <div class="product-card">
           <?php
             $img = $product['IMAGEM'];
