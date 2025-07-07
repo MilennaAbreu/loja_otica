@@ -21,7 +21,7 @@ body { font-family: var(--font-sans); background: var(--white); color: var(--bla
 .header-icons img { width:20px; }
 
 /* Hero Slider */
-.hero-slider { position:relative; overflow:hidden; width:100%; padding:0; }
+.hero-slider { position:relative; overflow:hidden; width:100%; padding:0; margin:0; }
 .slide { display:none; position:relative; width:100%; }
 .slide.active { display:block; }
 .slide img { width:100%; height:400px; object-fit:cover; }
@@ -72,6 +72,9 @@ form button { width:100%; padding:10px; background:var(--primary); border:none; 
 form button:hover, .btn:hover { background:var(--primary-dark); }
 
 .form-card { max-width:400px; margin:20px auto; padding:20px; background:#fff; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+
+.login-page { min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.google-signin { margin-top:10px; }
 
 .map-container { text-align:center; margin:20px 0; }
 .map-container iframe { width:100%; max-width:600px; height:300px; border:0; }

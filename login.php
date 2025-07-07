@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 include 'header.php';
 ?>
-<main class="container">
+<main class="login-page">
   <h2>Login</h2>
   <?php if ($message) echo '<p style="color:red">'.$message.'</p>'; ?>
   <div class="form-card">
@@ -28,7 +28,9 @@ include 'header.php';
     </form>
   </div>
   <p>Ou entre com sua conta Google (requer configuração):</p>
-  <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-login_uri="google_login.php"></div>
-  <div class="g_id_signin"></div>
+  <div class="google-signin">
+    <div id="g_id_onload" data-client_id="YOUR_GOOGLE_CLIENT_ID" data-login_uri="google_login.php"></div>
+    <div class="g_id_signin"></div>
+  </div>
 </main>
 <?php include 'footer.php'; ?>

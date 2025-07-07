@@ -4,7 +4,7 @@ require 'functions.php';
 include 'header.php';
 ?>
 <main>
-  <section class="hero-slider container">
+  <section class="hero-slider">
     <div class="slide active">
       <img src="assets/images/slide1.jpg" alt="Slide 1">
       <div class="slide-caption"><h1>Explore a nova coleção</h1></div>
