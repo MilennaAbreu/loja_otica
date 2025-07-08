@@ -30,9 +30,9 @@ $totalComFrete = $total + $frete;
       <tbody>
       <?php foreach ($items as $item): ?>
         <?php
-          $img = $item['IMAGEM'];
+          $img = $item['IMAGEM'] ?? '';
           if (!preg_match('/^https?:\/\//', $img)) {
-              if ($img !== '' && $img[0] !== '/') {
+              if ($img !== '' && $img !== null && $img[0] !== '/') {
                   $img = 'assets/images/' . $img;
               }
           }

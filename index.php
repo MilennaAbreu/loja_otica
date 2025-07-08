@@ -63,9 +63,9 @@ include 'header.php';
       <?php foreach (getProducts($pdo, $marcaSel, $catSel) as $product): ?>
         <div class="product-card">
           <?php
-            $img = $product['IMAGEM'];
+            $img = $product['IMAGEM'] ?? '';
             if (!preg_match('/^https?:\/\//', $img)) {
-                if ($img !== '' && $img[0] !== '/') {
+                if ($img !== '' && $img !== null && $img[0] !== '/') {
                     $img = 'assets/images/' . $img;
                 }
             }
