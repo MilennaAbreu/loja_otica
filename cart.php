@@ -8,6 +8,9 @@ $total = 0.0;
 foreach ($items as $it) {
     $total += $it['VALOR_UNITARIO'] * $it['QUANTIDADE'];
 }
+$cep = $_GET['cep'] ?? '';
+$frete = $cep ? 15.00 : 0.00; // cálculo simplificado
+$totalComFrete = $total + $frete;
 ?>
 <main class="container">
   <h2>Carrinho</h2>
@@ -27,15 +30,14 @@ foreach ($items as $it) {
       <tbody>
       <?php foreach ($items as $item): ?>
         <?php
-          $img = $item['IMAGEM'];
+          $img = $item['IMAGEM'] ?? '';
           if (!preg_match('/^https?:\/\//', $img)) {
-              if (file_exists($img)) {
-                  $img = $img;
-              } elseif (file_exists(__DIR__ . '/assets/images/' . $img)) {
+              if ($img !== '' && $img !== null && $img[0] !== '/') {
                   $img = 'assets/images/' . $img;
-              } else {
-                  $img = 'assets/images/placeholder.svg';
               }
+          }
+          if ($img === '' || $img === null) {
+              $img = 'assets/images/placeholder.svg';
           }
         ?>
         <tr>
@@ -48,10 +50,19 @@ foreach ($items as $it) {
       <?php endforeach; ?>
       </tbody>
     </table>
-    <p><strong>Total: R$ <?php echo number_format($total, 2, ',', '.'); ?></strong></p>
+    <form class="cart-shipping" method="get">
+      <label>CEP:
+        <input type="text" name="cep" value="<?php echo htmlspecialchars($cep); ?>">
+      </label>
+      <label>Cupom:
+        <input type="text" name="cupom" value="<?php echo htmlspecialchars($_GET['cupom'] ?? ''); ?>">
+      </label>
+      <button class="btn" type="submit">Calcular Frete</button>
+    </form>
+    <p><strong>Total: R$ <?php echo number_format($totalComFrete, 2, ',', '.'); ?> (frete <?php echo number_format($frete,2,',','.'); ?>)</strong></p>
     <div class="cart-actions">
       <form action="checkout.php" method="post">
-        <button class="btn" type="submit">Finalizar Compra</button>
+        <button class="btn btn-success" type="submit">Finalizar Compra - R$ <?php echo number_format($totalComFrete, 2, ',', '.'); ?></button>
       </form>
     </div>
   <?php endif; ?>

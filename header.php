@@ -11,7 +11,7 @@
 <body>
   <header class="main-header">
     <div class="header-top container">
-      <div class="logo"><a href="index.php">Óticas Alamanda</a></div>
+      <div class="logo"><a href="index.php"><img src="assets/images/logo.png" alt="Óticas Alamanda"></a></div>
       <button id="btn-hamburger" class="hamburger"><span></span><span></span><span></span></button>
       <nav class="main-nav">
         <ul>

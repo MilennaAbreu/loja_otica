@@ -11,13 +11,21 @@ const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 function showSlide(i) {
   slides.forEach(slide => slide.classList.remove('active'));
-  slides[i].classList.add('active');
+  if (slides[i]) {
+    slides[i].classList.add('active');
+  }
 }
-prev.addEventListener('click', () => {
-  index = (index > 0) ? index - 1 : slides.length - 1;
-  showSlide(index);
-});
-next.addEventListener('click', () => {
-  index = (index < slides.length - 1) ? index + 1 : 0;
-  showSlide(index);
-});
+if (slides.length) {
+  prev.addEventListener('click', () => {
+    index = (index > 0) ? index - 1 : slides.length - 1;
+    showSlide(index);
+  });
+  next.addEventListener('click', () => {
+    index = (index < slides.length - 1) ? index + 1 : 0;
+    showSlide(index);
+  });
+  setInterval(() => {
+    index = (index < slides.length - 1) ? index + 1 : 0;
+    showSlide(index);
+  }, 5000);
+}
