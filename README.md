@@ -15,3 +15,8 @@ para o servidor MySQL utilizado pela aplicação.
 Caso um produto não possua a imagem armazenada localmente, o site exibe
 um placeholder (`assets/images/placeholder.svg`).
 
+
+## Provador Virtual
+
+A página `tryon.php` permite testar um par de óculos utilizando a câmera do dispositivo. O modelo usado é `assets/images/Glasses.obj`, que pode ser substituído por outros conforme necessidade. Para acessar, clique em **Provador** no menu superior.
+

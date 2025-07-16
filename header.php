@@ -19,6 +19,7 @@
           <li><a href="#">Óculos de Grau</a></li>
           <li><a href="#">Lançamentos</a></li>
           <li><a href="#">Ofertas</a></li>
+          <li><a href="tryon.php">Provador</a></li>
         </ul>
       </nav>
       <div class="header-icons">
