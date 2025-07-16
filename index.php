@@ -76,7 +76,10 @@ include 'header.php';
           <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($product['NOME']) ?>">
           <h4><?= htmlspecialchars($product['NOME']) ?></h4>
           <p>R$ <?= number_format($product['VALOR_UNITARIO'], 2, ',', '.') ?></p>
-          <a class="btn" href="add_to_cart.php?id=<?= $product['ID'] ?>">Adicionar</a>
+          <div class="product-actions">
+            <a class="btn btn-secondary" href="tryon.php">Provar</a>
+            <a class="btn" href="add_to_cart.php?id=<?= $product['ID'] ?>">Adicionar</a>
+          </div>
         </div>
       <?php endforeach; ?>
     </div>
