@@ -45,6 +45,9 @@ body { font-family: var(--font-sans); background: var(--white); color: var(--bla
 .product-card { background:var(--white); border:1px solid #eee; border-radius:4px; padding:15px; text-align:center; transition:transform .3s; }
 .product-card:hover { transform:translateY(-5px); }
 .product-card img { width:100%; height:auto; margin-bottom:10px; }
+.product-actions { display:flex; justify-content:center; gap:8px; margin-top:10px; }
+.btn-secondary { background:#555; }
+.btn-secondary:hover { background:#333; }
 
 /* Mobile */
 @media(max-width: 768px) {

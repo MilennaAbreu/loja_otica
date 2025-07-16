@@ -18,5 +18,5 @@ um placeholder (`assets/images/placeholder.svg`).
 
 ## Provador Virtual
 
-A página `tryon.php` permite testar um par de óculos utilizando a câmera do dispositivo. O modelo usado é `assets/images/Glasses.obj`, que pode ser substituído por outros conforme necessidade. Para acessar, clique em **Provador** no menu superior.
+A página `tryon.php` permite testar um par de óculos utilizando a câmera do dispositivo. O modelo usado é `assets/images/Glasses.obj`, que pode ser substituído por outros conforme necessidade. Para acessar, clique em **Provador** no menu superior ou no botão **Provar** presente em cada produto.
 
