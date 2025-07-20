@@ -21,9 +21,9 @@
     return;
   }
 
+  const model = document.getElementById('glasses');
   if ('FaceDetector' in window) {
     const detector = new FaceDetector({ fastMode: true });
-    const model = document.getElementById('glasses');
     model.addEventListener('error', (ev) => {
       errorBox.textContent = 'Falha ao carregar o modelo 3D.';
       errorBox.style.display = 'block';
@@ -49,9 +49,36 @@
     }
     update();
   } else {
-    errorBox.textContent = 'FaceDetector API não suportada neste navegador';
+    errorBox.textContent = 'FaceDetector API não suportada neste navegador. Posicione os óculos manualmente.';
     errorBox.style.display = 'block';
     console.log('FaceDetector API não suportada neste navegador');
+
+    model.style.left = '50%';
+    model.style.top = '50%';
+    model.style.width = '250px';
+    model.style.height = '120px';
+    model.style.pointerEvents = 'auto';
+
+    let dragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    model.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      offsetX = e.clientX - model.offsetLeft;
+      offsetY = e.clientY - model.offsetTop;
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (dragging) {
+        model.style.left = (e.clientX - offsetX) + 'px';
+        model.style.top = (e.clientY - offsetY) + 'px';
+      }
+    });
+
+    window.addEventListener('pointerup', () => {
+      dragging = false;
+    });
   }
 })();
 </script>
