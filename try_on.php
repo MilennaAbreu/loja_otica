@@ -21,9 +21,9 @@ include 'header.php';
   document.addEventListener('DOMContentLoaded', () => {
     const sceneEl = document.querySelector('a-scene');
     sceneEl.addEventListener('loaded', () => {
-      const mindarComponent = sceneEl.components['mindar-face-system'];
-      if (mindarComponent && mindarComponent.start) {
-        mindarComponent.start();
+      const mindarSystem = sceneEl.systems['mindar-face-system'];
+      if (mindarSystem && mindarSystem.start) {
+        mindarSystem.start();
       }
     });
   });
