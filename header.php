@@ -20,6 +20,9 @@
           <li><a href="#">Lançamentos</a></li>
           <li><a href="#">Ofertas</a></li>
           <li><a href="tryon.php">Provador</a></li>
+
+          <li><a href="try_on.php">Provador</a></li>
+
         </ul>
       </nav>
       <div class="header-icons">

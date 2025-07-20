@@ -89,7 +89,6 @@ form button:hover, .btn:hover { background:var(--primary-dark); }
 .map-container { text-align:center; margin:20px 0; }
 .map-container iframe { width:100%; max-width:600px; height:300px; border:0; }
 
-
 /* Info cards below hero slider */
 .info-cards {
   display:flex;
@@ -116,3 +115,23 @@ form button:hover, .btn:hover { background:var(--primary-dark); }
 .tryon-container video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; }
 .tryon-container model-viewer { position:absolute; pointer-events:none; transform:translate(-50%,-50%); }
 
+/* Virtual try-on */
+#error-banner {
+  background:#f8d7da;
+  color:#721c24;
+  padding:10px;
+  margin-bottom:10px;
+  border:1px solid #f5c6cb;
+  border-radius:4px;
+  text-align:center;
+}
+
+#ar-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+a-scene {
+  width: 100%;
+  height: 100%;
+}
