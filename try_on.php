@@ -4,7 +4,7 @@ include 'header.php';
 <main class="container">
   <h1>Provador Virtual</h1>
     <div id="ar-container">
-      <a-scene mindar-face embedded color-space="sRGB" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-scene mindar-face="autoStart: false" embedded color-space="sRGB" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
         <a-assets>
           <a-asset-item id="glassesModel" src="assets/images/glasses-1-.glb"></a-asset-item>
         </a-assets>
@@ -20,12 +20,17 @@ include 'header.php';
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const sceneEl = document.querySelector('a-scene');
-    sceneEl.addEventListener('loaded', () => {
+    const startMindAR = () => {
       const mindarSystem = sceneEl.systems['mindar-face-system'];
       if (mindarSystem && mindarSystem.start) {
         mindarSystem.start();
       }
-    });
+    };
+    if (sceneEl.hasLoaded) {
+      startMindAR();
+    } else {
+      sceneEl.addEventListener('loaded', startMindAR);
+    }
   });
 </script>
 <?php
