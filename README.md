@@ -20,4 +20,5 @@ um placeholder (`assets/images/placeholder.svg`).
 
 A página `tryon.php` permite testar um par de óculos utilizando a câmera do dispositivo. O modelo usado é `assets/images/glasses-1-.glb`, que pode ser substituído por outros conforme necessidade. Para acessar, clique em **Provador** no menu superior ou no botão **Provar** presente em cada produto.
 Se o navegador oferecer suporte à API FaceDetector, os óculos são posicionados automaticamente sobre o rosto.
+Caso haja algum problema (por exemplo, falha ao carregar o modelo 3D ou câmera indisponível), uma mensagem de erro é exibida no topo da página.
 
