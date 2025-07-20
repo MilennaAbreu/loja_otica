@@ -46,6 +46,7 @@ include 'header.php';
           <h4><?= htmlspecialchars($product['NOME']) ?></h4>
           <p>R$ <?= number_format($product['VALOR_UNITARIO'], 2, ',', '.') ?></p>
           <a class="btn" href="add_to_cart.php?id=<?= $product['ID'] ?>">Adicionar</a>
+          <a class="btn" href="try_on.php">Provador</a>
         </div>
       <?php endforeach; ?>
     </div>
