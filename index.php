@@ -28,11 +28,24 @@ include 'header.php';
       </ul>
     </aside>
     <div class="products-grid">
-      <?php foreach(getProducts($pdo) as $product): ?>
+      <?php foreach (getProducts($pdo) as $product): ?>
         <div class="product-card">
-          <img src="<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>">
-          <h4><?= $product['name'] ?></h4>
-          <p>R$ <?= number_format($product['price'],2,',','.') ?></p>
+          <?php
+            $img = $product['IMAGEM'];
+            if (!preg_match('/^https?:\/\//', $img)) {
+                if (file_exists($img)) {
+                    $img = $img;
+                } elseif (file_exists(__DIR__ . '/assets/images/' . $img)) {
+                    $img = 'assets/images/' . $img;
+                } else {
+                    $img = 'assets/images/placeholder.svg';
+                }
+            }
+          ?>
+          <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($product['NOME']) ?>">
+          <h4><?= htmlspecialchars($product['NOME']) ?></h4>
+          <p>R$ <?= number_format($product['VALOR_UNITARIO'], 2, ',', '.') ?></p>
+          <a class="btn" href="add_to_cart.php?id=<?= $product['ID'] ?>">Adicionar</a>
         </div>
       <?php endforeach; ?>
     </div>
